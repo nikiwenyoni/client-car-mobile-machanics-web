@@ -1,0 +1,144 @@
+<app-navbar></app-navbar>
+
+<div class="container" style="padding-top: 20%;">
+
+    <div *ngIf="alreadyRequested == false">
+        <h4 class="display-4 text-center mb-4">Please click on the button below to request a technician</h4>
+        <div class="row mb-4">
+            <div class="col text-center">
+                <h3></h3>
+                <a class="btn btn-primary" data-toggle="modal" data-target="#basicModal">Request Technician</a>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="incidents != null" style="padding-top: 5%;">
+
+        <div *ngFor="let incident of incidents ">
+            <ul class="list-group">
+                <li class="list-group-item">Location : {{incident.address}}</li>
+                <li class="list-group-item">Body Type : {{incident.bodyType}}</li>
+                <li class="list-group-item">Date Created: {{incident.dateCreated}}</li>
+                <li class="list-group-item">Status: {{incident.status}}</li>
+                <li class="list-group-item">Transmission Type: {{incident.transmission}}</li>
+            </ul>
+    </div>
+
+    </div>
+
+</div>
+
+<!-- basic modal -->
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Request Service</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- <form [formGroup]="incidentForm" >
+                    <div class="form-group">
+                        <label for="comment">Vehicle Make && Model:</label>
+                        <input class="form-control" formControlName="vehicleMake" rows="5" id="vehicleMake"/>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="comment">Manual/Auto:</label>
+                        <input class="form-control" formControlName="transmission" rows="5" id="transmission"/>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="comment">Body Type</label>
+                        <input class="form-control" formControlName="bodyType" rows="5" id="bodyType"/>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="comment">Color</label>
+                        <input class="form-control" formControlName="color" rows="5" id="color"/>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="comment">Address</label>
+                        <input class="form-control"  formControlName="address" rows="5" id="address"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">City</label>
+                        <input class="form-control"  formControlName="city" rows="5" id="city"/>
+                    </div>
+    
+    
+                    <div class="form-group">
+                        <label for="comment">Reason:</label>
+                        <input class="form-control" formControlName="reason" rows="5" id="reason"/>
+                    </div>
+
+                    <div class="alert alert-danger" *ngIf="error_message != ''">
+                        <strong>{{error_message}}</strong> 
+                      </div>
+
+                      <div class="alert alert-success" *ngIf="success_message != ''">
+                        <strong>{{success_message}}</strong> 
+                      </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button  *ngIf="success_message == ''" type="submit" (click)="requestTechnician()" class="btn btn-primary">Proceed</button>
+                        <button  *ngIf="success_message != ''" type="submit" routerLink="/available-technicians" data-dismiss="modal" class="btn btn-success">Next</button>
+
+                    </div>
+
+                </form> -->
+
+                <div class="responsive-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.7806761080233!2d-93.29138368446431!3d44.96844997909819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b32b6ee2c87c91%3A0xc20dff2748d2bd92!2sWalker+Art+Center!5e0!3m2!1sen!2sus!4v1514524647889" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- large modal -->
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Large Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3>Modal Body</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- small modal -->
+<div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Small Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3>Modal Body</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

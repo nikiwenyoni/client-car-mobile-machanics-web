@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+<div class="container" style="padding-top: 5%;">
+    
+        <main>
+            <!--MDB Tables-->
+            <div class="container mt-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <!--Table-->
+                        <table class="table table-hover">
+                            <!--Table head-->
+                            <thead class="mdb-color darken-3">
+                                <tr class="text-white">
+                                    <th>#</th>
+                                    <th>Bank Name</th>
+                                    <th>Account Holder Name</th>
+                                    <th>Card Number</th>
+                                    <th>Expiry Date</th>
+                                    <th>Security Code</th>
+                                    <th>Zip/Postal Code</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <!--Table head-->
+                            <!--Table body-->
+                            <tbody>
+                                <tr *ngFor="let card of cards">
+                                    <th scope="row">{{card.id}}</th>
+                                    <td>{{card.bankName}}</td>
+                                    <td>{{card.accountHolder}}</td>
+                                    <td>{{card.cardNumber}}</td>
+                                    <td>{{card.expiryDate}}</td>
+                                    <td>---</td>
+                                    <td>{{card.postalCode}}</td>
+                                    <td><a href="">Delete</a></td>
+                                </tr>
+                            </tbody>
+                            <!--Table body-->
+                        </table>
+                        <!--Table-->
+                    </div>
+                </div>
+    
+            </div>
+            <!--MDB Tables-->
+          
+        </main>
+</div>

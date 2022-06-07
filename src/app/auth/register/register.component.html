@@ -1,0 +1,35 @@
+<div class="container" style="padding-top: 2%;">
+    <div class="content">
+       <img src="https://media.istockphoto.com/photos/calling-roadside-assistance-picture-id1271779268?k=20&m=1271779268&s=612x612&w=0&h=3LoiwSvE0FF-4QSAo05atEEySfBSQ1bnKZdUv2CgBY4="  alt="header-image" class="cld-responsive">
+            <h1 class="form-title">Need Assistance ?</h1>
+            <form [formGroup]="userForm" (ngSubmit)="register()">
+               <input type="text" placeholder="NAME" formControlName="firstName"><br>
+               <input type="text" placeholder="SURNAME" formControlName="lastName">
+
+            <div class="beside">
+                <input type="number" placeholder="PHONE NUMBER" formControlName="cellNumber">
+                <select  formControlName="gender" (change)="selected()"> 
+                    <option value="Male">MALE</option>
+                    <option value="Female">FEMALE</option>
+                    <option value="Not Specified">NON-BINARY</option>
+                </select>
+            </div>
+                <input type="email" placeholder="EMAIL ADDRESS" formControlName="email">
+                <input type="password" placeholder="PASSWORD" formControlName="firstPassword"><br>
+                <input type="password" placeholder="CONFIRM PASSWORD" formControlName="secondPassword"><br>
+
+                <div style="padding-top: 2%;" *ngIf="success_message != ''">
+                    <div class="alert alert-success">
+                        <strong>{{success_message}} <a routerLink="/login">here</a> to login</strong>
+                    </div>
+                </div>
+
+                <div class="alert alert-danger" style="padding-top: 2%;" *ngIf="error_message != ''">
+                    <strong>{{error_message}}</strong> 
+                  </div>
+                <button class="btn btn-danger" type="button" routerLink="/login">Back</button>
+                <button class="btn btn-primary" type="submit">Register</button>
+            </form>
+        </div>
+        
+ </div>

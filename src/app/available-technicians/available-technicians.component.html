@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="container" style="padding-top: 15%;">
+    <h2>Available Technicians</h2>
+    <div class="alert alert-info">
+        <strong>Info!</strong> Please select technician below:
+      </div>          
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Company Name</th>
+          <th>Estimated Price</th>
+          <th>Ratings</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let technician of technicians">
+          <td>{{technician.companyName}}</td>
+          <td>{{technician.price}}</td>
+          <td>{{technician.ratings}}</td>
+          <td><button class="btn btn-success" (click)="selectTechnician(technician)">Select Technician</button></td>
+        </tr>
+
+      </tbody>
+    </table>
+</div>
